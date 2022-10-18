@@ -1,9 +1,9 @@
 <template>
-  <section @click.prevent type="submit" class="feedback-form">
-    <input v-model="feedback.email" type="email" placeholder="Email" />
-    <input v-model="feedback.comment" type="text" placeholder="Message" />
-
-    <button @click="onSubmitMsg()">submit</button>
+  <section @click.prevent type="submit" class="feedback-form flex flex-column">
+    <input  class="form-input" v-model="feedback.email" type="email" placeholder="Email" />
+    <!-- <input v-model="feedback.comment" type="text" placeholder="Message" /> -->
+    <textarea class="form-input" rows="4" cols="50" v-model="feedback.comment" type="text" placeholder="Message"> </textarea>
+    <button class="form-btn" @click="onSubmitMsg()">submit</button>
   </section>
 </template>
 

@@ -1,5 +1,5 @@
 <template>
-<section>
+<section class="filter">
 
     <input   @input.prevent="onFilter" v-model="text" type="text" placeholder="Filter" >
 </section>

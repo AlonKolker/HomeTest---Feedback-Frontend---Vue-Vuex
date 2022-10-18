@@ -13,13 +13,13 @@
 @import 'views/list';
 @import 'views/details';
 @import 'views/edit';
-
+@import 'views/feedback';
+@import 'views/app';
 
 // Components
-@import 'cmps/app-header';
-@import 'cmps/app-footer';
-@import 'cmps/item-preview';
-@import 'cmps/item-edit-form';
+@import 'cmps/feedback-preview';
+@import 'cmps/filter';
+@import 'cmps/feedback-form';
 @import 'cmps/back-btn';
 
 

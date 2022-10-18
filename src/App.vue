@@ -1,21 +1,22 @@
 <template>
-  <feedback-form />
-  <feedback />
+  <section class="app-conteiner">
+    <feedback-form />
+    <feedback />
+  </section>
 </template>
 
 <script>
-import feedback from './views/feedback.vue'
-import feedbackForm from './views/feedback-form.vue'
+import feedback from "./views/feedback.vue"
+import feedbackForm from "./views/feedback-form.vue"
 
 export default {
-  name: 'app',
+  name: "app",
   components: {
     feedback,
-    feedbackForm
-    
+    feedbackForm,
   },
   created() {
-    this.$store.dispatch({ type: 'loadFeedbacks' })
+    this.$store.dispatch({ type: "loadFeedbacks" })
   },
 }
 </script>

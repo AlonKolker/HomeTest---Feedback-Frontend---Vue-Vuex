@@ -1,27 +1,25 @@
 <template>
-  <section class="feedback-preview">
-    <pre>{{feedback.imgSrc}}</pre>
-    <img v-if="feedback" :src="feedback.imgSrc" alt="" />
-    <div>{{ feedback.email }}</div>
-    <div>{{ feedback.comment }}</div>
+  <section class="feedback-preview-conteiner flex">
+    <img class="user-img" v-if="feedback" :src="feedback.imgSrc" alt="" />
+    <div class="feedback-preview-box">
+
+      <div class="feedback-email">{{ feedback.email }}</div>
+      <div class="feedback-msg">{{ shortBodyMsg }}</div>
+    </div>
   </section>
 </template>
 
 <script>
-
 export default {
   name: "feedback-preview",
   props: { feedback: Object },
-  created() {
-  },
-  methods: {
-
-  },
+  created() {},
+  methods: {},
   computed: {
-    // shortBody() {
-    //   return this.item.body.substr(0, 97) + "..."
-    // },
-    
+    shortBodyMsg() {
+      if (this.feedback.comment.length > 50) return this.feedback.comment.substr(0, 50) + "..."
+      return this.feedback.comment
+    },
   },
   emits: [],
 }
