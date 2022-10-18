@@ -8,7 +8,7 @@ export const feedbackStore = {
     getters: {
         feedbacks({ feedbacks,filter }) {
           if(filter === '')  return feedbacks 
-        return feedbacks.filter(feedback=> feedback.comment.includes(filter))
+        return feedbacks.filter(feedback=> feedback.comment.toLowerCase().includes(filter))
         },
     },
     mutations: {

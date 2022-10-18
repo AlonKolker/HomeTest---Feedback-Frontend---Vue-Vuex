@@ -3,7 +3,6 @@ export const utilService = {
   getRandomInt,
   makeId,
   getDemoItems,
-  getEmptyItem,
 }
 
 function delay(ms = 1500) {
@@ -50,15 +49,6 @@ function getDemoItems() {
   ]
 }
 
-function getEmptyItem() {
-  return {
-    imgSrc: "",
-    icon: "",
-    title: "",
-    subtitle: "",
-    body: ``,
-  }
-}
 
 function _getLorem() {
   return "Lorem ipsum dolor sit amet? "

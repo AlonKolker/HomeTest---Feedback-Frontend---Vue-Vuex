@@ -17,7 +17,7 @@ export default {
   methods: {},
   computed: {
     shortBodyMsg() {
-      if (this.feedback.comment.length > 50) return this.feedback.comment.substr(0, 50) + "..."
+      if (this.feedback.comment.length > 45) return this.feedback.comment.substr(0, 45) + "..."
       return this.feedback.comment
     },
   },

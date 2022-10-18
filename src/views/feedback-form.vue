@@ -1,15 +1,14 @@
 <template>
   <section @click.prevent type="submit" class="feedback-form flex flex-column">
-    <input  class="form-input" v-model="feedback.email" type="email" placeholder="Email" />
-    <!-- <input v-model="feedback.comment" type="text" placeholder="Message" /> -->
+    <input class="form-input" v-model="feedback.email" type="email" placeholder="Email" />
     <textarea class="form-input" rows="4" cols="50" v-model="feedback.comment" type="text" placeholder="Message"> </textarea>
-    <button class="form-btn" @click="onSubmitMsg()">submit</button>
+    <div>
+      <button class="form-btn" @click="onSubmitMsg()">submit</button>
+    </div>
   </section>
 </template>
 
 <script>
-// import { itemService } from "../services/item.service"
-// import { showErrorMsg } from "../services/event-bus.service"
 export default {
   name: "feedback-form",
   data() {
@@ -32,7 +31,6 @@ export default {
       )
         return
 
-      console.log(this.feedback)
       const feedback = JSON.parse(JSON.stringify(this.feedback))
       this.$store.dispatch({ type: "saveMsg", feedback })
       this.feedback = {
