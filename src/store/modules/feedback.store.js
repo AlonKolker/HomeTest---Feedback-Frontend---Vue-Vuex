@@ -16,9 +16,7 @@ export const feedbackStore = {
             state.feedbacks = feedbacks
         },
         updateFeedback(state, { savedFeedback }) {
-            console.log('savedFeedback',savedFeedback._id)
             const idx = state.feedbacks.findIndex(feedback => feedback._id === savedFeedback._id)
-            console.log('idx', idx)
             if (idx <= 0) state.feedbacks.unshift(savedFeedback)
             else state.feedbacks[idx] = savedFeedback
         },
@@ -26,7 +24,6 @@ export const feedbackStore = {
             state.items = state.items.filter(item => item._id !== itemId)
         },
         setFilter(state,{text}){
-            console.log(text);
             state.filter = text
         }
     },
@@ -34,7 +31,6 @@ export const feedbackStore = {
         async loadFeedbacks({ commit }) {
             try {
                 const feedbacks = await feedbackService.query()
-                console.log(feedbacks)
                 commit({ type: 'setFeedbacks', feedbacks })
                   } catch (err) {
                 console.log('itemStore: Error in loadItems', err)
@@ -53,7 +49,6 @@ export const feedbackStore = {
         async saveMsg({ commit }, { feedback }) {
             try {
                 const savedFeedback = await feedbackService.save(feedback)
-                // console.log(savedFeedback);
                 commit({ type: 'updateFeedback', savedFeedback })
             } catch (err) {
                 console.log('itemStore: Error in saveItem')
@@ -62,7 +57,6 @@ export const feedbackStore = {
         },
 
         setFilter({commit},{text}){
-            console.log(text)
             commit({ type: 'setFilter', text })
 
 

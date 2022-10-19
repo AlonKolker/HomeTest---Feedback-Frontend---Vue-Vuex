@@ -17,7 +17,6 @@ async function query(filterBy) {
   // var queryStr = (!filterBy) ? '' : `?name=${filterBy.name}&sort=anaAref`
   try{
     let temp = await httpService.get('feedbacks')
-    console.log(temp)
     return temp
 
   }catch (err){
@@ -27,17 +26,11 @@ async function query(filterBy) {
 }
 
 async function getById(itemId) {
-  // return httpService.get(`item/${itemId}`)
   return storageService.get('item', itemId) 
 }
 
 function save(feedback) {
-  console.log(feedback);
-  // if (feedback._id) return storageService.put('feedback', feedback)
-  // else return storageService.post('feedback', feedback)
 
-  // if (item._id) return httpService.put(`item/${item._id}`, item)
-  // else return httpService.post('item', item) 
   return httpService.post('feedbacks', feedback) 
 }
 
@@ -48,7 +41,6 @@ function remove(feedbackId) {
 
 function _createItems() {
   let feedbacks = JSON.parse(localStorage.getItem('feedback'))
-  console.log(feedbacks);
   if (!feedbacks) { feedbacks = utilService.getDemoItems() }
   localStorage.setItem('feedback', JSON.stringify(feedbacks))
 }
